@@ -1,19 +1,22 @@
+console.log("1index");
+const token = process.env['6757']
 const Discord = require('discord.js');
+const keepAlive = require('./server.js');
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_VOICE_STATES", "GUILDS"] });
 const DisTube = require('distube');
 const distube = new DisTube.DisTube(client, { searchSongs: 5, emitNewSongOnly: true});
-const{ token } = require('./info.json');
 const prefix = '!';
 console.log('Arturito entro al serverrrr');
-//client.login{token};
+//client.login{token}; esto lo comente porque ahora se usa el secreto  
+
 
 
 client.once('ready', c => {
 	console.log(`Listorti, loggueado como ${c.user.tag}`);
-});
+}); 
 
 
-console.log("3");
+
 
 client.on("messageCreate", async (message) => {
     console.log("4");
@@ -75,5 +78,7 @@ client.on("messageCreate", async (message) => {
     
 
 });
+console.log("llegue al keep alive");
+keepAlive();
 client.login(token)
 console.log("ejecuté todo")

@@ -1,19 +1,15 @@
-//aca va el codigo del bot
-
-
-const { Client, Intents } = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
-
-
-client.on("ready", () => {
-    console.log("El bot fue iniciado con exito.");
- });
+console.log("1server");
+const express = require('express');
+const server = express();
+ console.log("2server");
+server.all('/', (req, res) => {
+  res.send(`OK`)
+})
+ console.log("3server");
+function keepAlive() {
+  console.log("4server");
+  server.listen(3000, () => { console.log("Server is Ready!!" + Date.now()) });
+}
  
- client.on("message", (message) => {
-   if(message.content.startsWith("!")) {
-     message.channel.send("cosopene");
-   }
- 
- });
- 
- client.login("OTIzMDA5ODgwMzcyMTUwMzMy.YcJx8A.IirxfDs6as0CM-bYex320zXWmCI");
+module.exports = keepAlive;
+
